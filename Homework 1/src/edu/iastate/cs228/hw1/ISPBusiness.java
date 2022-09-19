@@ -76,7 +76,11 @@ public class ISPBusiness {
 			t.randomInit(seed);
 			
 			System.out.println(t.toString());
-		}		
+		}
+		else
+		{
+			System.out.println("ERROR: Choice Input Not Valid, Enter 1 or 2\n");
+		}
 		s.close();
 	}
 }

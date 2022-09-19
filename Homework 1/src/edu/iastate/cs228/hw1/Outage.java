@@ -4,7 +4,6 @@ public class Outage extends TownCell{
 
 	public Outage(Town p, int r, int c) {
 		super(p, r, c);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

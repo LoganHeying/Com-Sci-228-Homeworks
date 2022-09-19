@@ -4,9 +4,8 @@ public class Streamer extends TownCell{
 
 	public Streamer(Town p, int r, int c) {
 		super(p, r, c);
-		// TODO Auto-generated constructor stub
 	}
-
+	
 	@Override
 	public State who() {
 		return State.STREAMER;

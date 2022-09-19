@@ -4,7 +4,6 @@ public class Reseller extends TownCell{
 
 	public Reseller(Town p, int r, int c) {
 		super(p, r, c);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
