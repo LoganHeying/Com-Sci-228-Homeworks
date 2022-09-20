@@ -13,7 +13,11 @@ public class Reseller extends TownCell{
 
 	@Override
 	public TownCell next(Town tNew) {
-		// TODO Auto-generated method stub
+		//Rule 3.a, nCensus[CASUAL] <= 3, Cell becomes E
+		//Rule 3.b, nCensus[EMPTY]+[OUTAGE] >= 3, Cell becomes E
+		//Rule 6.a, nCensus[EMPTY] + [OUTAGE] <= 1, Cell becomes R
+		//Rule 6.b, nCensus[CASUAL] >= 5, Cell becomes S
+		//else, Cell remains unchanged
 		return null;
 	}
 

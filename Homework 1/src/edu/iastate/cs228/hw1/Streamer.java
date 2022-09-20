@@ -13,7 +13,11 @@ public class Streamer extends TownCell{
 
 	@Override
 	public TownCell next(Town tNew) {
-		// TODO Auto-generated method stub
+		//Rule 2.a, nCensus[RESELLER] >= 1, Cell becomes O
+		//Rule 2.b, nCensus[OUTAGE] >= 1, Cell becomes E
+		//Rule 6.a, nCensus[EMPTY] + [OUTAGE] <= 1, Cell becomes R
+		//Rule 6.b, nCensus[CASUAL] >= 5, Cell becomes S
+		//else, Cell remains unchanged
 		return null;
 	}
 

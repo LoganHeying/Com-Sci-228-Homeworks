@@ -13,7 +13,11 @@ public class Casual extends TownCell{
 
 	@Override
 	public TownCell next(Town tNew) {
-		// TODO Auto-generated method stub
+		//Rule 1.a, nCensus[RESELLER] >= 1, Cell becomes O
+		//Rule 1.b, nCensus[STREAMER] >= 1, Cell becomes S
+		//Rule 6.a, nCensus[EMPTY] + [OUTAGE] <= 1, Cell becomes R
+		//Rule 6.b, nCensus[CASUAL] >= 5, Cell becomes S
+		//else, Cell remains unchanged
 		return null;
 	}
 

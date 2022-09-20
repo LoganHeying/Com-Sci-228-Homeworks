@@ -13,7 +13,9 @@ public class Outage extends TownCell{
 
 	@Override
 	public TownCell next(Town tNew) {
-		return new Empty(tNew, super.row, super.col);
+		//Rule 6.b, nCensus[CASUAL] >= 5, Cell becomes S
+		//default, Cell becomes E
+		return null;
 	}
 
 }
