@@ -14,7 +14,6 @@ public class Empty extends TownCell {
 
 	@Override
 	public TownCell next(Town tNew) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }

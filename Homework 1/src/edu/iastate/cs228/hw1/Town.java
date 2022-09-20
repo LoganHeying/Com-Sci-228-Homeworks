@@ -24,6 +24,8 @@ public class Town
 	 */
 	public Town(int length, int width) 
 	{
+		this.length = length;
+		this.width = width;
 		grid = new TownCell[length][width];
 	}
 	
@@ -55,6 +57,12 @@ public class Town
 	public int getLength() 
 	{
 		return this.length;
+	}
+	
+	//TODO: write documentation
+	public TownCell[][] getTown() 
+	{
+		return grid;
 	}
 
 	/**
@@ -115,6 +123,7 @@ public class Town
 		}
 		return s;
 	}
+	
 	//TODO: Write Documentation
 	private String checkValue(TownCell c)
 	{
@@ -135,5 +144,16 @@ public class Town
 		}
 		
 		return "B";
+	}
+
+	public void censusAll(int r, int c)
+	{
+		for(int i = 0; i < r; i++)
+		{
+			for(int j = 0; j < c; j++)
+			{
+				grid[i][j].census(grid[i][j].nCensus);
+			}
+		}
 	}
 }

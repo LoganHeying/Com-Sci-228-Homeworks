@@ -72,15 +72,16 @@ public class ISPBusiness {
 			int rows = s.nextInt();
 			int cols = s.nextInt();
 			int seed = s.nextInt();
+			s.close();
 			Town t = new Town(rows, cols);
 			t.randomInit(seed);
-			
 			System.out.println(t.toString());
+			
+			t.censusAll(rows, cols);
 		}
 		else
 		{
 			System.out.println("ERROR: Choice Input Not Valid, Enter 1 or 2\n");
 		}
-		s.close();
 	}
 }

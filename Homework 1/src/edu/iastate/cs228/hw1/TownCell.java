@@ -45,9 +45,76 @@ public abstract class TownCell {
 		nCensus[CASUAL] = 0; 
 		nCensus[OUTAGE] = 0; 
 		nCensus[STREAMER] = 0; 
-
-		//TODO: Write your code here.
-
+		
+		//System.out.println("Cell " + row + " " + col); // + "\n Borders left/top = 0/0, right/bottom = " + (plain.getWidth()-1) + "/" + (plain.getLength()-1));
+		if(row == 0 && col == 0)
+		{
+			nCensus[checkCell(plain.getTown()[row][col+1])]++;
+			nCensus[checkCell(plain.getTown()[row+1][col])]++;
+			nCensus[checkCell(plain.getTown()[row+1][col+1])]++;
+		}
+		else if(row == 0 && col == plain.getWidth()-1)
+		{
+			nCensus[checkCell(plain.getTown()[row][col-1])]++;
+			nCensus[checkCell(plain.getTown()[row+1][col-1])]++;
+			nCensus[checkCell(plain.getTown()[row][col])]++;
+		}
+		else if(row == plain.getLength()-1 && col == 0)
+		{
+			nCensus[checkCell(plain.getTown()[row-1][col])]++;
+			nCensus[checkCell(plain.getTown()[row-1][col+1])]++;
+			nCensus[checkCell(plain.getTown()[row][col+1])]++;
+		}				
+		else if(row == plain.getLength()-1 && col == plain.getWidth()-1)
+		{
+			nCensus[checkCell(plain.getTown()[row][col-1])]++;
+			nCensus[checkCell(plain.getTown()[row-1][col-1])]++;
+			nCensus[checkCell(plain.getTown()[row-1][col])]++;
+		}
+		else if(row == 0)
+		{
+			nCensus[checkCell(plain.getTown()[row][col-1])]++;
+			nCensus[checkCell(plain.getTown()[row][col+1])]++;
+			nCensus[checkCell(plain.getTown()[row+1][col-1])]++;
+			nCensus[checkCell(plain.getTown()[row+1][col])]++;
+			nCensus[checkCell(plain.getTown()[row+1][col+1])]++;
+		}
+		else if(row == plain.getLength()-1)
+		{
+			nCensus[checkCell(plain.getTown()[row][col-1])]++;
+			nCensus[checkCell(plain.getTown()[row][col+1])]++;
+			nCensus[checkCell(plain.getTown()[row-1][col-1])]++;
+			nCensus[checkCell(plain.getTown()[row-1][col])]++;
+			nCensus[checkCell(plain.getTown()[row-1][col+1])]++;
+		}
+		else if(col == 0)
+		{
+			nCensus[checkCell(plain.getTown()[row-1][col])]++;
+			nCensus[checkCell(plain.getTown()[row-1][col+1])]++;
+			nCensus[checkCell(plain.getTown()[row][col+1])]++;
+			nCensus[checkCell(plain.getTown()[row+1][col])]++;
+			nCensus[checkCell(plain.getTown()[row+1][col+1])]++;
+		}
+		else if(col == plain.getWidth()-1)
+		{
+			nCensus[checkCell(plain.getTown()[row-1][col-1])]++;
+			nCensus[checkCell(plain.getTown()[row-1][col])]++;
+			nCensus[checkCell(plain.getTown()[row][col-1])]++;
+			nCensus[checkCell(plain.getTown()[row+1][col-1])]++;
+			nCensus[checkCell(plain.getTown()[row+1][col])]++;
+		}
+		else
+		{
+			//All non-border cells 
+			nCensus[checkCell(plain.getTown()[row-1][col-1])]++;
+			nCensus[checkCell(plain.getTown()[row-1][col])]++;
+			nCensus[checkCell(plain.getTown()[row-1][col+1])]++;
+			nCensus[checkCell(plain.getTown()[row][col-1])]++;
+			nCensus[checkCell(plain.getTown()[row][col+1])]++;
+			nCensus[checkCell(plain.getTown()[row+1][col-1])]++;
+			nCensus[checkCell(plain.getTown()[row+1][col])]++;
+			nCensus[checkCell(plain.getTown()[row+1][col+1])]++;
+		}
 	}
 
 	/**
@@ -64,4 +131,37 @@ public abstract class TownCell {
 	 * @return TownCell
 	 */
 	public abstract TownCell next(Town tNew);
+	
+	//TODO: Write Documentation
+	public static int checkCell(TownCell c)
+	{
+		State state = c.who();
+		
+		switch(state)
+		{
+		case EMPTY:
+			return EMPTY;
+		case CASUAL:
+			return CASUAL;
+		case RESELLER:
+			return RESELLER;
+		case OUTAGE:
+			return OUTAGE;
+		case STREAMER:
+			return STREAMER;
+		}
+		return -1;
+	}
+
+	//TODO: Write Documentation
+	public int getRow()
+	{
+		return this.row;
+	}
+	
+	//TODO: Write Documentation
+	public int getCol()
+	{
+		return this.col;
+	}
 }
