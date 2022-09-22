@@ -10,7 +10,7 @@ class CasualTest {
 	@DisplayName("Test the return of who()")
 	void testWho() {
 		Casual c = new Casual (new Town(1,1), 0, 0);
-		assertEquals(State.CASUAL, c.who(), "Method returns CASUAL");
+		assertEquals(State.CASUAL, c.who(), "Method doesn't return CASUAL");
 	}
 
 	@Test
