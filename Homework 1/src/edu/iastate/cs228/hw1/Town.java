@@ -146,6 +146,7 @@ public class Town
 		return "B";
 	}
 
+	//TODO: Write Documentation
 	public void censusAll(int r, int c)
 	{
 		for(int i = 0; i < r; i++)

@@ -13,30 +13,40 @@ public class Streamer extends TownCell{
 
 	@Override
 	public TownCell next(Town tNew) {
+		TownCell result = null;
+		
 		//Rule 2.a, nCensus[RESELLER] >= 1, Cell becomes O
 		if(TownCell.nCensus[RESELLER] >= 1)
 		{
-			return new Outage(tNew, super.row, super.col);
+			result = null;
+			result = new Outage(tNew, super.row, super.col);
 		}
 		//Rule 2.b, nCensus[OUTAGE] >= 1, Cell becomes E
 		else if(TownCell.nCensus[OUTAGE] >= 1)
 		{
-			return new Empty(tNew, super.row, super.col);
+			result = null;
+			result = new Empty(tNew, super.row, super.col);
 		}
 		//Rule 6.a, nCensus[EMPTY] + [OUTAGE] <= 1, Cell becomes R
-		else if(TownCell.nCensus[EMPTY] == 0 && TownCell.nCensus[OUTAGE] == 0)
+		if((TownCell.nCensus[EMPTY] + TownCell.nCensus[OUTAGE]) <= 1)
 		{
-			return new Reseller(tNew, super.row, super.col);
-		}
-		//Rule 6.b, nCensus[CASUAL] >= 5, Cell becomes S
-		else if(TownCell.nCensus[CASUAL] >= 5)
-		{
-			return new Streamer(tNew, super.row, super.col);
+			result = null;
+			result = new Reseller(tNew, super.row, super.col);
 		}
 		//default, Cell remains unchanged
-		else
+		else if(result == null)
 		{
-			return new Streamer(tNew, super.row, super.col);
+			//Rule 6.b, nCensus[CASUAL] >= 5, Cell becomes S
+			if(TownCell.nCensus[CASUAL] >= 5)
+			{
+				result = new Streamer(tNew, super.row, super.col);
+			}
+			else
+			{
+				result = new Streamer(tNew, super.row, super.col);
+			}
 		}
+		
+		return result;
 	}
 }

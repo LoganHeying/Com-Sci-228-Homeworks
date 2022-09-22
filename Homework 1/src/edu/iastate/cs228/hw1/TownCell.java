@@ -161,6 +161,7 @@ public abstract class TownCell {
 		return this.col;
 	}
 	
+	//TODO: Write Documentation
 	protected void printCensus()
 	{
 		System.out.println("Reseller - " + TownCell.nCensus[RESELLER]);

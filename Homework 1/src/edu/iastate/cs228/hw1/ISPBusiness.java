@@ -19,7 +19,15 @@ public class ISPBusiness {
 	public static Town updatePlain(Town tOld) 
 	{
 		Town tNew = new Town(tOld.getLength(), tOld.getWidth());
-		//TODO: Write your code here.
+		
+		for(int i = 0; i < tOld.getLength(); i++)
+		{
+			for(int j = 0; j < tOld.getWidth(); j++)
+			{
+				tOld.getTown()[i][j].census(tOld.getTown()[i][j].nCensus);
+				tNew.addCell(tOld.getTown()[i][j].next(tNew), i, j);
+			}
+		}
 		return tNew;
 	}
 	
@@ -30,8 +38,19 @@ public class ISPBusiness {
 	 */
 	public static int getProfit(Town town) 
 	{
-		//TODO: Write/update your code here.
-		return 0;
+		int profit = 0;
+		for(int i = 0; i < town.getLength(); i++)
+		{
+			for(int j = 0; j < town.getWidth(); j++)
+			{
+				if(town.getTown()[i][j].who().equals(State.CASUAL))
+				{
+					profit++;
+				}
+			}
+		}
+		//System.out.println("Profit = " + profit);
+		return profit;
 	}
 	
 
@@ -64,6 +83,7 @@ public class ISPBusiness {
 		
 		if(choice == 1)
 		{
+			//TODO: Implement File Reading stuff
 			System.out.println("Will Read the File given. TODO");
 		}
 		else if(choice == 2)
@@ -73,11 +93,26 @@ public class ISPBusiness {
 			int cols = s.nextInt();
 			int seed = s.nextInt();
 			s.close();
+			int months = 12;
 			Town t = new Town(rows, cols);
 			t.randomInit(seed);
-			System.out.println(t.toString());
+			int maxProfit = rows * cols * months; 
+			int totalProfit = 0; 
+			Town[] towns = new Town[months];
 			
-			t.censusAll(rows, cols);
+			towns[0] = t;
+			totalProfit += getProfit(towns[0]);
+			
+			for(int i = 1; i < months; i++)
+			{
+				towns[i] = updatePlain(towns[i-1]);
+				totalProfit += getProfit(towns[i]);
+			}
+			
+			double profitUtil = ((double)totalProfit/(double)maxProfit) * 100;
+			
+			System.out.printf("%.2f%%", profitUtil);
+			
 		}
 		else
 		{

@@ -13,25 +13,34 @@ public class Reseller extends TownCell{
 
 	@Override
 	public TownCell next(Town tNew) {
+		TownCell result = null;
+		
 		//Rule 3.a, nCensus[CASUAL] <= 3, Cell becomes E
 		if(TownCell.nCensus[CASUAL] <= 3)
 		{
-			return new Empty(tNew, super.row, super.col);
+			result = null;
+			result = new Empty(tNew, super.row, super.col);
 		}
 		//Rule 3.b, nCensus[EMPTY]+[OUTAGE] >= 3, Cell becomes E
 		else if((TownCell.nCensus[EMPTY] + TownCell.nCensus[OUTAGE]) >= 3)
 		{
-			return new Empty(tNew, super.row, super.col);
-		}
-		//Rule 6.b, nCensus[CASUAL] >= 5, Cell becomes S
-		else if(TownCell.nCensus[CASUAL] >= 5)
-		{
-			return new Streamer(tNew, super.row, super.col);
+			result = null;
+			result = new Empty(tNew, super.row, super.col);
 		}
 		//default, Cell remains unchanged
-		else
+		else if(result == null)
 		{
-			return new Reseller(tNew, super.row, super.col);
+			//Rule 6.b, nCensus[CASUAL] >= 5, Cell becomes S
+			if(TownCell.nCensus[CASUAL] >= 5)
+			{
+				result = new Streamer(tNew, super.row, super.col);
+			}
+			else
+			{
+				result = new Reseller(tNew, super.row, super.col);
+			}
 		}
+		
+		return result;
 	}
 }

@@ -14,20 +14,20 @@ public class Empty extends TownCell {
 
 	@Override
 	public TownCell next(Town tNew) {
+		TownCell result = null;
+		
 		//Rule 6.a, nCensus[EMPTY] + [OUTAGE] <= 1, Cell becomes R
-		if(TownCell.nCensus[EMPTY] == 0 && TownCell.nCensus[OUTAGE] == 0)
+		if((TownCell.nCensus[EMPTY] + TownCell.nCensus[OUTAGE]) <= 1)
 		{
-			return new Reseller(tNew, super.row, super.col);
-		}
-		//Rule 6.b, nCensus[CASUAL] >= 5, Cell becomes S
-		else if(TownCell.nCensus[CASUAL] >= 5)
-		{
-			return new Streamer(tNew, super.row, super.col);
+			result = null;
+			result = new Reseller(tNew, super.row, super.col);
 		}
 		//default, Cell becomes C
-		else
+		else if(result == null)
 		{
-			return new Casual(tNew, super.row, super.col);
+			result = new Casual(tNew, super.row, super.col);
 		}
+		
+		return result;
 	}
 }
