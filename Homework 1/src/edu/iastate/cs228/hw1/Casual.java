@@ -24,7 +24,7 @@ public class Casual extends TownCell{
 			return new Streamer(tNew, super.row, super.col);
 		}
 		//Rule 6.a, nCensus[EMPTY] + [OUTAGE] <= 1, Cell becomes R
-		else if(this.nCensus[EMPTY] == 0 && this.nCensus[OUTAGE] == 0)
+		else if(TownCell.nCensus[EMPTY] == 0 && TownCell.nCensus[OUTAGE] == 0)
 		{
 			return new Reseller(tNew, super.row, super.col);
 		}
