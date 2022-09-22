@@ -19,7 +19,7 @@ public class Reseller extends TownCell{
 			return new Empty(tNew, super.row, super.col);
 		}
 		//Rule 3.b, nCensus[EMPTY]+[OUTAGE] >= 3, Cell becomes E
-		else if(TownCell.nCensus[EMPTY] + TownCell.nCensus[OUTAGE] >= 3)
+		else if((TownCell.nCensus[EMPTY] + TownCell.nCensus[OUTAGE]) >= 3)
 		{
 			return new Empty(tNew, super.row, super.col);
 		}
