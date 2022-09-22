@@ -80,11 +80,24 @@ public class ISPBusiness {
 		System.out.println("How to populate grid (type 1 or 2); 1: From a file. 2: randomly with seed");
 		
 		int choice = s.nextInt();
+		int months = 12;
 		
 		if(choice == 1)
 		{
-			//TODO: Implement File Reading stuff
-			System.out.println("Will Read the File given. TODO");
+			System.out.print("Please enter file path: ");
+			String filename = s.next();
+			s.close();
+			Town t;
+			try {
+				t = new Town(filename);
+			} 
+			catch (FileNotFoundException e) {
+				System.out.print("The file doesn't exist, please try again");
+				return;
+			}
+	
+			//System.out.println(t.toString());
+			simulate(t, months);
 		}
 		else if(choice == 2)
 		{
@@ -93,30 +106,39 @@ public class ISPBusiness {
 			int cols = s.nextInt();
 			int seed = s.nextInt();
 			s.close();
-			int months = 12;
 			Town t = new Town(rows, cols);
 			t.randomInit(seed);
-			int maxProfit = rows * cols * months; 
-			int totalProfit = 0; 
-			Town[] towns = new Town[months];
 			
-			towns[0] = t;
-			totalProfit += getProfit(towns[0]);
-			
-			for(int i = 1; i < months; i++)
-			{
-				towns[i] = updatePlain(towns[i-1]);
-				totalProfit += getProfit(towns[i]);
-			}
-			
-			double profitUtil = ((double)totalProfit/(double)maxProfit) * 100;
-			
-			System.out.printf("%.2f%%", profitUtil);
+			simulate(t, months);
 			
 		}
 		else
 		{
 			System.out.println("ERROR: Choice Input Not Valid, Enter 1 or 2\n");
 		}
+		s.close();
+	}
+	
+	//TODO: Write Documentation
+	private static void simulate(Town start, int months)
+	{
+		int rows = start.getLength();
+		int cols = start.getWidth();
+		int maxProfit = rows * cols * months; 
+		int totalProfit = 0; 
+		Town[] towns = new Town[months];
+		
+		towns[0] = start;
+		totalProfit += getProfit(towns[0]);
+		
+		for(int i = 1; i < months; i++)
+		{
+			towns[i] = updatePlain(towns[i-1]);
+			totalProfit += getProfit(towns[i]);
+		}
+		
+		double profitUtil = ((double)totalProfit/(double)maxProfit) * 100;
+		
+		System.out.printf("%.2f%%", profitUtil);
 	}
 }
