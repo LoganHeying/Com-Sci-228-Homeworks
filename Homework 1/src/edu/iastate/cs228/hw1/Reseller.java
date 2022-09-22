@@ -14,17 +14,17 @@ public class Reseller extends TownCell{
 	@Override
 	public TownCell next(Town tNew) {
 		//Rule 3.a, nCensus[CASUAL] <= 3, Cell becomes E
-		if(this.nCensus[CASUAL] <= 3)
+		if(TownCell.nCensus[CASUAL] <= 3)
 		{
 			return new Empty(tNew, super.row, super.col);
 		}
 		//Rule 3.b, nCensus[EMPTY]+[OUTAGE] >= 3, Cell becomes E
-		else if(this.nCensus[EMPTY] + this.nCensus[OUTAGE] >= 3)
+		else if(TownCell.nCensus[EMPTY] + TownCell.nCensus[OUTAGE] >= 3)
 		{
 			return new Empty(tNew, super.row, super.col);
 		}
 		//Rule 6.b, nCensus[CASUAL] >= 5, Cell becomes S
-		else if(this.nCensus[CASUAL] >= 5)
+		else if(TownCell.nCensus[CASUAL] >= 5)
 		{
 			return new Streamer(tNew, super.row, super.col);
 		}

@@ -14,22 +14,22 @@ public class Streamer extends TownCell{
 	@Override
 	public TownCell next(Town tNew) {
 		//Rule 2.a, nCensus[RESELLER] >= 1, Cell becomes O
-		if(this.nCensus[RESELLER] >= 1)
+		if(TownCell.nCensus[RESELLER] >= 1)
 		{
 			return new Outage(tNew, super.row, super.col);
 		}
 		//Rule 2.b, nCensus[OUTAGE] >= 1, Cell becomes E
-		else if(this.nCensus[OUTAGE] >= 1)
+		else if(TownCell.nCensus[OUTAGE] >= 1)
 		{
 			return new Empty(tNew, super.row, super.col);
 		}
 		//Rule 6.a, nCensus[EMPTY] + [OUTAGE] <= 1, Cell becomes R
-		else if(this.nCensus[EMPTY] + this.nCensus[OUTAGE] <= 1)
+		else if(this.nCensus[EMPTY] == 0 && this.nCensus[OUTAGE] == 0)
 		{
 			return new Reseller(tNew, super.row, super.col);
 		}
 		//Rule 6.b, nCensus[CASUAL] >= 5, Cell becomes S
-		else if(this.nCensus[CASUAL] >= 5)
+		else if(TownCell.nCensus[CASUAL] >= 5)
 		{
 			return new Streamer(tNew, super.row, super.col);
 		}

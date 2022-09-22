@@ -156,4 +156,10 @@ public class Town
 			}
 		}
 	}
+	
+	//TODO: Write Documentation
+	public void addCell(TownCell c, int row, int col)
+	{
+		grid[row][col] = c;
+	}
 }

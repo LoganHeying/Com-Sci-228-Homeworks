@@ -45,75 +45,71 @@ public abstract class TownCell {
 		nCensus[CASUAL] = 0; 
 		nCensus[OUTAGE] = 0; 
 		nCensus[STREAMER] = 0; 
+
+		//All non-border cells 
+		try {
+		nCensus[checkCell(plain.getTown()[row-1][col-1])]++;
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			//System.out.println("Cell - " + (row-1) + " " + (col-1) + " Doesn't exist or is null");
+		}
+
 		
-		//System.out.println("Cell " + row + " " + col); // + "\n Borders left/top = 0/0, right/bottom = " + (plain.getWidth()-1) + "/" + (plain.getLength()-1));
-		if(row == 0 && col == 0)
-		{
-			nCensus[checkCell(plain.getTown()[row][col+1])]++;
-			nCensus[checkCell(plain.getTown()[row+1][col])]++;
-			nCensus[checkCell(plain.getTown()[row+1][col+1])]++;
+		try {
+		nCensus[checkCell(plain.getTown()[row-1][col])]++;
 		}
-		else if(row == 0 && col == plain.getWidth()-1)
+		catch(IndexOutOfBoundsException e)
 		{
-			nCensus[checkCell(plain.getTown()[row][col-1])]++;
-			nCensus[checkCell(plain.getTown()[row+1][col-1])]++;
-			nCensus[checkCell(plain.getTown()[row][col])]++;
+			//System.out.println("Cell - " + (row-1) + " " + (col) + " Doesn't exist or is null");
 		}
-		else if(row == plain.getLength()-1 && col == 0)
+		
+		try {
+		nCensus[checkCell(plain.getTown()[row-1][col+1])]++;
+		}		
+		catch(IndexOutOfBoundsException e)
 		{
-			nCensus[checkCell(plain.getTown()[row-1][col])]++;
-			nCensus[checkCell(plain.getTown()[row-1][col+1])]++;
-			nCensus[checkCell(plain.getTown()[row][col+1])]++;
-		}				
-		else if(row == plain.getLength()-1 && col == plain.getWidth()-1)
-		{
-			nCensus[checkCell(plain.getTown()[row][col-1])]++;
-			nCensus[checkCell(plain.getTown()[row-1][col-1])]++;
-			nCensus[checkCell(plain.getTown()[row-1][col])]++;
+			//System.out.println("Cell - " + (row-1) + " " + (col+1) + " Doesn't exist or is null");
 		}
-		else if(row == 0)
-		{
-			nCensus[checkCell(plain.getTown()[row][col-1])]++;
-			nCensus[checkCell(plain.getTown()[row][col+1])]++;
-			nCensus[checkCell(plain.getTown()[row+1][col-1])]++;
-			nCensus[checkCell(plain.getTown()[row+1][col])]++;
-			nCensus[checkCell(plain.getTown()[row+1][col+1])]++;
+		
+		try {
+		nCensus[checkCell(plain.getTown()[row][col-1])]++;
 		}
-		else if(row == plain.getLength()-1)
+		catch(IndexOutOfBoundsException e)
 		{
-			nCensus[checkCell(plain.getTown()[row][col-1])]++;
-			nCensus[checkCell(plain.getTown()[row][col+1])]++;
-			nCensus[checkCell(plain.getTown()[row-1][col-1])]++;
-			nCensus[checkCell(plain.getTown()[row-1][col])]++;
-			nCensus[checkCell(plain.getTown()[row-1][col+1])]++;
+			//System.out.println("Cell - " + (row) + " " + (col-1) + " Doesn't exist or is null");
 		}
-		else if(col == 0)
-		{
-			nCensus[checkCell(plain.getTown()[row-1][col])]++;
-			nCensus[checkCell(plain.getTown()[row-1][col+1])]++;
-			nCensus[checkCell(plain.getTown()[row][col+1])]++;
-			nCensus[checkCell(plain.getTown()[row+1][col])]++;
-			nCensus[checkCell(plain.getTown()[row+1][col+1])]++;
+		
+		try {
+		nCensus[checkCell(plain.getTown()[row][col+1])]++;
 		}
-		else if(col == plain.getWidth()-1)
+		catch(IndexOutOfBoundsException e)
 		{
-			nCensus[checkCell(plain.getTown()[row-1][col-1])]++;
-			nCensus[checkCell(plain.getTown()[row-1][col])]++;
-			nCensus[checkCell(plain.getTown()[row][col-1])]++;
-			nCensus[checkCell(plain.getTown()[row+1][col-1])]++;
-			nCensus[checkCell(plain.getTown()[row+1][col])]++;
+			//System.out.println("Cell - " + (row) + " " + (col+1) + " Doesn't exist or is null");
 		}
-		else
+		
+		try {
+		nCensus[checkCell(plain.getTown()[row+1][col-1])]++;
+		}
+		catch(IndexOutOfBoundsException e)
 		{
-			//All non-border cells 
-			nCensus[checkCell(plain.getTown()[row-1][col-1])]++;
-			nCensus[checkCell(plain.getTown()[row-1][col])]++;
-			nCensus[checkCell(plain.getTown()[row-1][col+1])]++;
-			nCensus[checkCell(plain.getTown()[row][col-1])]++;
-			nCensus[checkCell(plain.getTown()[row][col+1])]++;
-			nCensus[checkCell(plain.getTown()[row+1][col-1])]++;
-			nCensus[checkCell(plain.getTown()[row+1][col])]++;
-			nCensus[checkCell(plain.getTown()[row+1][col+1])]++;
+			//System.out.println("Cell - " + (row+1) + " " + (col-1) + " Doesn't exist or is null");
+		}
+		
+		try {
+		nCensus[checkCell(plain.getTown()[row+1][col])]++;
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			//System.out.println("Cell - " + (row+1) + " " + (col) + " Doesn't exist or is null");
+		}
+		
+		try {
+		nCensus[checkCell(plain.getTown()[row+1][col+1])]++;
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			//System.out.println("Cell - " + (row+1) + " " + (col+1) + " Doesn't exist or is null");
 		}
 	}
 
@@ -163,5 +159,15 @@ public abstract class TownCell {
 	public int getCol()
 	{
 		return this.col;
+	}
+	
+	protected void printCensus()
+	{
+		System.out.println("Reseller - " + TownCell.nCensus[RESELLER]);
+		System.out.println("Empty - " + TownCell.nCensus[EMPTY]);
+		System.out.println("Casual - " + TownCell.nCensus[CASUAL]);
+		System.out.println("Outage - " + TownCell.nCensus[OUTAGE]);
+		System.out.println("Streamer - " + TownCell.nCensus[STREAMER]);
+		System.out.println();
 	}
 }

@@ -15,7 +15,7 @@ public class Empty extends TownCell {
 	@Override
 	public TownCell next(Town tNew) {
 		//Rule 6.a, nCensus[EMPTY] + [OUTAGE] <= 1, Cell becomes R
-		if(this.nCensus[EMPTY] + this.nCensus[OUTAGE] <= 1)
+		if(this.nCensus[EMPTY] == 0 && this.nCensus[OUTAGE] == 0)
 		{
 			return new Reseller(tNew, super.row, super.col);
 		}
