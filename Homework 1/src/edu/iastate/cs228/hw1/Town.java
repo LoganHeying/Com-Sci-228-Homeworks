@@ -1,4 +1,4 @@
-package edu.iastate.cs228.hw1;
+ package edu.iastate.cs228.hw1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -169,15 +169,6 @@ public class Town {
 		}
 
 		return "B";
-	}
-
-	// TODO: Write Documentation
-	public void censusAll(int r, int c) {
-		for (int i = 0; i < r; i++) {
-			for (int j = 0; j < c; j++) {
-				grid[i][j].census(grid[i][j].nCensus);
-			}
-		}
 	}
 
 	// TODO: Write Documentation

@@ -108,7 +108,7 @@ public class ISPBusiness {
 			s.close();
 			Town t = new Town(rows, cols);
 			t.randomInit(seed);
-			
+			System.out.println(t.toString());
 			simulate(t, months);
 			
 		}

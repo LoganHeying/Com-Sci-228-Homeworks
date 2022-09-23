@@ -162,13 +162,13 @@ public abstract class TownCell {
 	}
 	
 	//TODO: Write Documentation
-	protected void printCensus()
+	public String printCensus()
 	{
-		System.out.println("Reseller - " + TownCell.nCensus[RESELLER]);
-		System.out.println("Empty - " + TownCell.nCensus[EMPTY]);
-		System.out.println("Casual - " + TownCell.nCensus[CASUAL]);
-		System.out.println("Outage - " + TownCell.nCensus[OUTAGE]);
-		System.out.println("Streamer - " + TownCell.nCensus[STREAMER]);
-		System.out.println();
+		String s = "Reseller - " + TownCell.nCensus[RESELLER];
+		s += "\nEmpty - " + TownCell.nCensus[EMPTY];
+		s += "\nCasual - " + TownCell.nCensus[CASUAL];
+		s += "\nOutage - " + TownCell.nCensus[OUTAGE];
+		s += "\nStreamer - " + TownCell.nCensus[STREAMER];
+		return s;
 	}
 }
