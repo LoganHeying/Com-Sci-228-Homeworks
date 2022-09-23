@@ -1,5 +1,10 @@
 package edu.iastate.cs228.hw1;
 
+/**
+ * @author Logan Heying
+ *
+ * The casual town cell type class
+ */
 public class Casual extends TownCell{
 
 	public Casual(Town p, int r, int c) {

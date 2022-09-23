@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- * @author <<Write your name here>>
+ * @author Logan Heying
  *
  * The ISPBusiness class performs simulation over a grid 
  * plain with cells occupied by different TownCell types.
@@ -119,7 +119,13 @@ public class ISPBusiness {
 		s.close();
 	}
 	
-	//TODO: Write Documentation
+	
+	/**
+	 * This program simulates the amoutn of time passing that is given, and will calculate the profit utilization.
+	 * 
+	 * @param start The starting town to be used
+	 * @param months The amount of months to be used for calculation
+	 */
 	private static void simulate(Town start, int months)
 	{
 		int rows = start.getLength();

@@ -1,5 +1,10 @@
 package edu.iastate.cs228.hw1;
 
+/**
+ * @author Logan Heying
+ *
+ * The reseller town type class
+ */
 public class Reseller extends TownCell{
 
 	public Reseller(Town p, int r, int c) {

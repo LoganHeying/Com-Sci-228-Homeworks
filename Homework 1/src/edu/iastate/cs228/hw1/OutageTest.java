@@ -4,6 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * @author Logan Heying
+ *
+ * The outage test class
+ */
 class OutageTest {
 
 	@Test
@@ -11,7 +16,7 @@ class OutageTest {
 		Outage testCell = new Outage(new Town(1, 1), 0, 0);
 		assertEquals(State.OUTAGE, testCell.who(), "Method doesn't return OUTAGE");
 	}
-
+	
 	@Test
 	void testNext() {
 		Town t = new Town(1, 1);

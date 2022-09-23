@@ -6,8 +6,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * @author <<Write your name here>>
+ * @author Logan Heying
  *
+ * This holds the Town and all methods to create it. 
  */
 
 public class Town {
@@ -94,7 +95,11 @@ public class Town {
 		return this.length;
 	}
 
-	// TODO: write documentation
+	/**
+	 * Returns the town grid.
+	 * 
+	 * @return grid
+	 */
 	public TownCell[][] getTown() {
 		return grid;
 	}
@@ -151,7 +156,13 @@ public class Town {
 		return s;
 	}
 
-	// TODO: Write Documentation
+	
+	/**
+	 * Checks the value of the the cell provided to determine what character is to be printed. 
+	 * 
+	 * @param c The cell being checked
+	 * @return character to be printed
+	 */
 	private String checkValue(TownCell c) {
 		State state = c.who();
 
@@ -171,7 +182,14 @@ public class Town {
 		return "B";
 	}
 
-	// TODO: Write Documentation
+	
+	/**
+	 * A helper function to add a cell type to the city manually, mainly for testing
+	 * 
+	 * @param c The cell to be added
+	 * @param row The cell's row position 
+	 * @param col The cell's column position
+	 */
 	public void addCell(TownCell c, int row, int col) {
 		grid[row][col] = c;
 	}

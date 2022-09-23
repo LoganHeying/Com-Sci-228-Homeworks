@@ -4,6 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * @author Logan Heying
+ * 
+ * The ISP Test Class
+ */
 class ISPBusinessTest {
 
 	@Test

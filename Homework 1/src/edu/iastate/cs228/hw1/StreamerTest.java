@@ -5,6 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+/**
+ * @author Logan Heying
+ *
+ * The streamer cell type test class
+ */
 class StreamerTest {
 
 	@Test

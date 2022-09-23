@@ -5,7 +5,16 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+/**
+ * @author Logan Heying
+ *
+ * The TownCell test class
+ */
 class TownCellTest {
+	/**Generates a town used for 3 different tests
+	 * 
+	 * @return the town to be used
+	 */
 	public Town getTestTown()
 	{
 		Town tester = new Town(3,3);

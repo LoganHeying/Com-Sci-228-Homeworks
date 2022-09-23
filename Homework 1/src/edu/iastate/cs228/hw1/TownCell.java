@@ -1,9 +1,9 @@
 package edu.iastate.cs228.hw1;
 /**
  * 
- * @author <<Write your name here>>
- *	Also provide appropriate comments for this class
+ * @author Logan Heying
  *
+ * The abstract town cell class 
  */
 public abstract class TownCell {
 
@@ -128,7 +128,13 @@ public abstract class TownCell {
 	 */
 	public abstract TownCell next(Town tNew);
 	
-	//TODO: Write Documentation
+	
+	/**
+	 * Determines what type of cell to be added in the census function
+	 * 
+	 * @param c the cell being checked
+	 * @return the integer index used for the census
+	 */
 	public static int checkCell(TownCell c)
 	{
 		State state = c.who();
@@ -149,19 +155,31 @@ public abstract class TownCell {
 		return -1;
 	}
 
-	//TODO: Write Documentation
+	/**
+	 * Returns the row position of the cell.
+	 * 
+	 * @return row
+	 */
 	public int getRow()
 	{
 		return this.row;
 	}
 	
-	//TODO: Write Documentation
+	/**
+	 * Returns the column position of the cell.
+	 * 
+	 * @return col
+	 */
 	public int getCol()
 	{
 		return this.col;
 	}
 	
-	//TODO: Write Documentation
+	
+	/**
+	 * A test function that will print the contents of one cell's census data
+	 * @return s To be printed
+	 */
 	public String printCensus()
 	{
 		String s = "Reseller - " + TownCell.nCensus[RESELLER];

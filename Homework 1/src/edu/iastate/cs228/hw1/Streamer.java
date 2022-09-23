@@ -1,5 +1,10 @@
 package edu.iastate.cs228.hw1;
 
+/**
+ * @author Logan Heying
+ *
+ * The streamer town cell type
+ */
 public class Streamer extends TownCell{
 
 	public Streamer(Town p, int r, int c) {
