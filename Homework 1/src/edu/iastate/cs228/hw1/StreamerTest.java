@@ -17,29 +17,33 @@ class StreamerTest {
 	@Test
 	@DisplayName("Testing rule 2.a")
 	void testNext1() {
-		Town t1 = new Town(1, 2);
+		Town t1 = new Town(2, 2);
 		Streamer s1 = new Streamer(t1, 0, 0);
 		t1.addCell(s1, s1.getRow(), s1.getCol());
 		
 		t1.addCell(new Reseller(t1, 0, 1), 0, 1);
+		t1.addCell(new Empty(t1, 1, 1), 1, 1);
+		t1.addCell(new Empty(t1, 1, 0), 1, 0);
 		
 		s1.census(s1.nCensus);
 		
-		assertEquals(State.OUTAGE, s1.next(new Town(1,2)).who(), "Method deosn't return OUTAGE");
+		assertEquals(State.OUTAGE, s1.next(new Town(2,2)).who(), "Method deosn't return OUTAGE");
 	}
 
 	@Test
 	@DisplayName("Testing rule 2.b")
 	void testNext2() {
-		Town t2 = new Town(1, 2);
+		Town t2 = new Town(2, 2);
 		Streamer s2 = new Streamer(t2, 0, 0);
 		t2.addCell(s2, s2.getRow(), s2.getCol());
 		
 		t2.addCell(new Outage(t2, 0, 1), 0, 1);
+		t2.addCell(new Empty(t2, 1, 1), 1, 1);
+		t2.addCell(new Empty(t2, 1, 0), 1, 0);
 		
 		s2.census(s2.nCensus);
 		
-		assertEquals(State.EMPTY, s2.next(new Town(1,2)).who(), "Method deosn't return EMPTY");
+		assertEquals(State.EMPTY, s2.next(new Town(2,2)).who(), "Method deosn't return EMPTY");
 	}
 	
 	@Test
@@ -63,7 +67,7 @@ class StreamerTest {
 		Town t4 = new Town(3,3);
 		Streamer s4 = new Streamer(t4, 1, 1);
 		t4.addCell(s4, s4.getRow(), s4.getCol());
-		t4.addCell(new Streamer(t4, 0, 0), 0, 0);
+		t4.addCell(new Empty(t4, 0, 0), 0, 0);
 		t4.addCell(new Empty(t4, 0, 1), 0, 1);
 		t4.addCell(new Streamer(t4, 0, 2), 0, 2);
 		
@@ -81,11 +85,13 @@ class StreamerTest {
 	@Test
 	@DisplayName("Testing default")
 	void testNext5() {
-		Town t5 = new Town(1, 2);
+		Town t5 = new Town(2, 2);
 		Streamer s5 = new Streamer(t5, 0, 0);
 		t5.addCell(s5, s5.getRow(), s5.getCol());
 		
 		t5.addCell(new Empty(t5, 0, 1), 0, 1);
+		t5.addCell(new Empty(t5, 1, 1), 1, 1);
+		t5.addCell(new Streamer(t5, 1, 0), 1, 0);
 		
 		s5.census(s5.nCensus);
 		

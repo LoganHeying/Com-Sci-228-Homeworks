@@ -16,11 +16,13 @@ class CasualTest {
 	@Test
 	@DisplayName("Test next() in situation of rule 1.a")
 	void testNext1() {
-		Town t1 = new Town(1, 2);
+		Town t1 = new Town(2, 2);
 		Casual c1 = new Casual(t1, 0, 0);
 		t1.addCell(c1, c1.getRow(), c1.getCol());
 		
 		t1.addCell(new Reseller(t1, 0, 1), 0, 1);
+		t1.addCell(new Empty(t1, 1, 1), 1, 1);
+		t1.addCell(new Empty(t1, 1, 0), 1, 0);
 		
 		c1.census(c1.nCensus);
 		
@@ -30,11 +32,13 @@ class CasualTest {
 	@Test
 	@DisplayName("Test next() in situation of rule 1.b")
 	void testNext2() {
-		Town t2 = new Town(1, 2);
+		Town t2 = new Town(2, 2);
 		Casual c2 = new Casual(t2, 0, 0);
 		t2.addCell(c2, c2.getRow(), c2.getCol());
 		
 		t2.addCell(new Streamer(t2, 0, 1), 0, 1);
+		t2.addCell(new Empty(t2, 1, 1), 1, 1);
+		t2.addCell(new Empty(t2, 1, 0), 1, 0);
 		
 		c2.census(c2.nCensus);
 		
@@ -80,9 +84,11 @@ class CasualTest {
 	@Test
 	@DisplayName("Test next() with no change in cell")
 	void testNext6() {
-		Town t5 = new Town(1, 2);
-		Empty c5 = new Empty(t5, 0, 0);
+		Town t5 = new Town(2, 2);
+		Casual c5 = new Casual(t5, 0, 0);
 		t5.addCell(new Outage(t5, 0, 1), 0, 1);
+		t5.addCell(new Empty(t5, 1, 1), 1, 1);
+		t5.addCell(new Empty(t5, 1, 0), 1, 0);
 		
 		c5.census(c5.nCensus);
 		assertEquals(State.CASUAL, c5.next(new Town (1,2)).who(), "Method doesn't return CASUAL");
