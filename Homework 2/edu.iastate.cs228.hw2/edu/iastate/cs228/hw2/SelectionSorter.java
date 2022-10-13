@@ -30,7 +30,7 @@ public class SelectionSorter extends AbstractSorter
 	 */
 	public SelectionSorter(Point[] pts)  
 	{
-		// TODO 
+		// TODO: Create the constructor
 	}	
 
 	
@@ -41,6 +41,6 @@ public class SelectionSorter extends AbstractSorter
 	@Override 
 	public void sort()
 	{
-		// TODO 
+		// TODO: Waiting on answer from professor/student on how this should be done
 	}	
 }

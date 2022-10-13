@@ -29,7 +29,7 @@ public class MergeSorter extends AbstractSorter
 	 */
 	public MergeSorter(Point[] pts) 
 	{
-		// TODO  
+		// TODO: Create the constuctor
 	}
 
 
@@ -40,7 +40,7 @@ public class MergeSorter extends AbstractSorter
 	@Override 
 	public void sort()
 	{
-		// TODO 
+		// TODO: Waiting on answer from professor/student on how this should be done
 	}
 
 	
@@ -53,7 +53,7 @@ public class MergeSorter extends AbstractSorter
 	 */
 	private void mergeSortRec(Point[] pts)
 	{
-		
+		//TODO: Implement a sorter the right way. Will figure out later
 	}
 
 	

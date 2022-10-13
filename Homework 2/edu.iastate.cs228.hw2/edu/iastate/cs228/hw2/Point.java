@@ -76,6 +76,7 @@ public class Point implements Comparable<Point>
 	 */
 	public int compareTo(Point q)
 	{
+		//TODO: Make sure the compareTo() is correct based on what a professor/student says
 		if ((Point.xORy == true && (this.x < q.x || (this.x == q.x && this.y < q.y))) || (Point.xORy == false && (this.y < q.y || (this.y == q.y && this.x < q.x))))
 			return -1;
 		else if (this.x == q.x && this.y == q.y)

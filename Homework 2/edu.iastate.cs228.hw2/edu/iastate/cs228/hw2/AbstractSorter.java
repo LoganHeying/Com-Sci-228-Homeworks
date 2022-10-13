@@ -47,6 +47,8 @@ public abstract class AbstractSorter
 	 */
 	protected AbstractSorter(Point[] pts) throws IllegalArgumentException
 	{
+		//TODO: Implement the error check
+		
 		points = new Point[pts.length];
 		
 		for(int i = 0; i < points.length; i++)

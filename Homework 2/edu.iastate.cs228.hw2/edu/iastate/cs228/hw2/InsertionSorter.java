@@ -30,7 +30,7 @@ public class InsertionSorter extends AbstractSorter
 	 */
 	public InsertionSorter(Point[] pts) 
 	{
-		// TODO 
+		// TODO: Create the constructor
 	}	
 
 	
@@ -40,6 +40,6 @@ public class InsertionSorter extends AbstractSorter
 	@Override 
 	public void sort()
 	{
-		// TODO 
+		// TODO: Waiting on answer from professor/student on how this should be done
 	}		
 }

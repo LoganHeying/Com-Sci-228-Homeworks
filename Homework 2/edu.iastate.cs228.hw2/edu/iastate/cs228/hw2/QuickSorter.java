@@ -31,7 +31,7 @@ public class QuickSorter extends AbstractSorter
 	 */
 	public QuickSorter(Point[] pts)
 	{
-		// TODO 
+		// TODO: Implment the contructor
 	}
 		
 
@@ -42,7 +42,7 @@ public class QuickSorter extends AbstractSorter
 	@Override 
 	public void sort()
 	{
-		// TODO 
+		// TODO: Waiting on answer from professor/student on how this should be done
 	}
 	
 	
@@ -54,7 +54,7 @@ public class QuickSorter extends AbstractSorter
 	 */
 	private void quickSortRec(int first, int last)
 	{
-		// TODO
+		// TODO: Figure out what do do with this
 	}
 	
 	
@@ -67,7 +67,7 @@ public class QuickSorter extends AbstractSorter
 	 */
 	private int partition(int first, int last)
 	{
-		// TODO 
+		// TODO: Figure out how to partition this
 		return 0; 
 	}	
 		

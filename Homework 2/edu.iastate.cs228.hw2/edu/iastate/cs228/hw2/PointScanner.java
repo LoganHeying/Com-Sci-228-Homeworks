@@ -56,7 +56,7 @@ public class PointScanner
 	 */
 	protected PointScanner(String inputFileName, Algorithm algo) throws FileNotFoundException, InputMismatchException
 	{
-		// TODO
+		// TODO: Create constructor based on a file input
 	}
 
 	
@@ -74,7 +74,7 @@ public class PointScanner
 	 */
 	public void scan()
 	{
-		// TODO  
+		// TODO: Figure out how to scan each thing
 		AbstractSorter aSorter; 
 		
 		// create an object to be referenced by aSorter according to sortingAlgorithm. for each of the two 
@@ -107,7 +107,7 @@ public class PointScanner
 	public String stats()
 	{
 		return null; 
-		// TODO 
+		// TODO: Figure out how to implement stats(), shouldn't be too hard
 	}
 	
 	
@@ -133,7 +133,7 @@ public class PointScanner
 	 */
 	public void writeMCPToFile() throws FileNotFoundException
 	{
-		// TODO 
+		// TODO: write the median point to a file
 	}	
 
 	
