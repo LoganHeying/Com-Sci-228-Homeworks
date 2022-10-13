@@ -47,13 +47,13 @@ public abstract class AbstractSorter
 	 */
 	protected AbstractSorter(Point[] pts) throws IllegalArgumentException
 	{
-		// TODO 
-	}
-
+		points = new Point[pts.length];
 		
-	
-	
-	
+		for(int i = 0; i < points.length; i++)
+		{
+			points[i] = pts[i];
+		}
+	}
 
 	/**
 	 * Generates a comparator on the fly that compares by x-coordinate if order == 0, by y-coordinate
@@ -70,10 +70,37 @@ public abstract class AbstractSorter
 	 */
 	public void setComparator(int order) throws IllegalArgumentException
 	{
-		// TODO 
+		if(order == 0)
+		{
+			new Comparator<Point>()
+			{
+				@Override
+				public int compare(Point x, Point y)
+				{
+					x.setXorY(true);
+					return x.compareTo(y);
+					
+				}
+			};
+		}
+		else if(order == 1)
+		{
+			new Comparator<Point>()
+			{
+				@Override
+				public int compare(Point x, Point y)
+				{
+					x.setXorY(false);
+					return x.compareTo(y);
+					
+				}
+			};
+		}
+		else
+		{
+			throw new IllegalArgumentException("Order must be 0 or 1");
+		}
 	}
-
-	
 
 	/**
 	 * Use the created pointComparator to conduct sorting.  
@@ -101,7 +128,11 @@ public abstract class AbstractSorter
 	 */
 	public void getPoints(Point[] pts)
 	{
-		// TODO 
+		pts = new Point[points.length];
+		for(int i = 0; i < points.length; i++)
+		{
+			pts[i] = points[i];
+		}
 	}
 	
 
@@ -113,6 +144,12 @@ public abstract class AbstractSorter
 	 */
 	protected void swap(int i, int j)
 	{
-		// TODO 
+		Point tempI = new Point(points[i].getX(), points[i].getY());
+		tempI.setXorY(points[i].getXORY());
+		Point tempJ = new Point(points[j].getX(), points[j].getY());
+		tempI.setXorY(points[j].getXORY());
+		
+		points[i] = tempJ;
+		points[j] = tempI;
 	}	
 }

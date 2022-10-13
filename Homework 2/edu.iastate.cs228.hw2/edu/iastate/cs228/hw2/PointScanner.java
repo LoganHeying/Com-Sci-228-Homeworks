@@ -38,7 +38,12 @@ public class PointScanner
 	 */
 	public PointScanner(Point[] pts, Algorithm algo) throws IllegalArgumentException
 	{
-		
+		this.sortingAlgorithm = algo;
+		points = new Point[pts.length];
+		for(int i = 0; i < pts.length; i++)
+		{
+			points[i] = pts[i];
+		}
 	}
 
 	
@@ -113,8 +118,8 @@ public class PointScanner
 	@Override
 	public String toString()
 	{
-		return null; 
-		// TODO
+		String s = "MCP: (" + medianCoordinatePoint.getX() + ", " + medianCoordinatePoint.getY() + ")";
+		return s; 
 	}
 
 	
